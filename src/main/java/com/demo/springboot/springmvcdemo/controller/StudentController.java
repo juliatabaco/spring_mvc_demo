@@ -12,6 +12,13 @@ import com.demo.springboot.springmvcdemo.model.Student;
 public class StudentController {
 	
 	/*
+	 * (2.1) Drop down list demo
+	 * Add this after configuring countries on application.properties
+	 */
+//	@Value("${countries}")
+//	private List<String> countries;
+	
+	/*
 	 * (1) Spring MVC basic demo
 	 */
 	@GetMapping("/showStudentForm")
@@ -31,20 +38,15 @@ public class StudentController {
 	public String processForm(@ModelAttribute("student") Student theStudent) {
 		return "student-confirmation";
 	}
-
-	/*
-	 * (2.1) Drop down list demo
-	 * Add this after configuring countries on application.properties
-	 */
-//	@Value("${countries}")
-//	private List<String> countries;
 	
 	/*
 	 * (3) Validation
 	 */
 //	@PostMapping("/processStudentForm")
-//	public String processForm(@Valid @ModelAttribute("student") Student theStudent, BindingResult result) {
+//	public String processForm(@Valid @ModelAttribute("student") Student theStudent, BindingResult result, Model theModel) {
 //		if(result.hasErrors()) {
+//			// re-add the countries when invalidation occurs
+//			theModel.addAttribute("countries", countries);
 //			return "student-form";
 //		} else { 
 //			return "student-confirmation";
